@@ -1,0 +1,39 @@
+{
+    "name": "luozhenyu/laravel-jinritemai",
+    "description": "今日特卖放心购SDK for laravel",
+    "keywords": [
+        "jinritemai",
+        "fangxingou",
+        "sdk",
+        "laravel"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "luozhenyu",
+            "email": "lzy@luozy.cn"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^5.1",
+        "luozhenyu/jinritemai": "^0.1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Luozhenyu\\LaravelJinRiTeMai\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Luozhenyu\\LaravelJinRiTeMai\\ServiceProvider"
+            ],
+            "aliases": {
+                "JinRiTeMai": "Luozhenyu\\LaravelJinRiTeMai\\Facade"
+            }
+        }
+    }
+}

@@ -3,18 +3,26 @@
 
 namespace Luozhenyu\LaravelJinRiTeMai;
 
-use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use Luozhenyu\JinRiTeMai\Application as JinRiTeMaiApplication;
 
-class ServiceProvider extends LaravelServiceProvider
+/**
+ * Class JinRiTeMaiServiceProvider
+ * @package Luozhenyu\LaravelJinRiTeMai
+ */
+class JinRiTeMaiServiceProvider extends ServiceProvider
 {
     /**
+     * Indicates if loading of the provider is deferred.
+     *
      * @var bool
      */
     protected $defer = true;
 
     /**
      * Boot the provider.
+     *
+     * @return void
      */
     public function boot()
     {
@@ -24,13 +32,14 @@ class ServiceProvider extends LaravelServiceProvider
     }
 
     /**
-     * Register the provider.
+     * Register the service provider.
+     *
+     * @return void
      */
     public function register()
     {
-        $app=$this->app;
-        $app->singleton('jinritemai', function ($app) {
-            $config = $app['config']->get('jinritemai');
+        $this->app->singleton('jinritemai', function ($app) {
+            $config = $app->make('config')->get('jinritemai');
             return new JinRiTeMaiApplication($config['appKey'], $config['appSecret'], $config['userConfig']);
         });
     }

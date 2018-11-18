@@ -29,10 +29,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Luozhenyu\\LaravelJinRiTeMai\\ServiceProvider"
+                "Luozhenyu\\LaravelJinRiTeMai\\JinRiTeMaiServiceProvider"
             ],
             "aliases": {
-                "JinRiTeMai": "Luozhenyu\\LaravelJinRiTeMai\\Facade"
+                "JinRiTeMai": "Luozhenyu\\LaravelJinRiTeMai\\Facades\\JinRiTeMai"
             }
         }
     }

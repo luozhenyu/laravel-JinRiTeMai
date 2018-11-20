@@ -38,8 +38,12 @@ class JinRiTeMaiServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/config.php', 'jinritemai'
+        );
+
         $this->app->singleton('jinritemai', function ($app) {
-            $config = $app->make('config')->get('jinritemai');
+            $config = $app['config']->get('jinritemai', []);
             return new JinRiTeMaiApplication($config['appKey'], $config['appSecret'], $config['userConfig']);
         });
     }
